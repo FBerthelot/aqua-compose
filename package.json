@@ -1,0 +1,52 @@
+{
+  "name": "aqua-compose",
+  "version": "1.0.0",
+  "licence": "MIT",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-react-hook": "^3.2.0",
+    "surge": "^0.20.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "pretest": "prettier --check 'src/**/*.js'",
+    "test": "react-scripts test",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "eject": "react-scripts eject",
+    "cli": "node src/scripts",
+    "deploy:production": "surge --project ./build --domain aqua-compose.berthelot.io",
+    "deploy:v1": "surge --project ./build --domain v1.aqua-compose.berthelot.io",
+    "deploy:v2": "surge --project ./build --domain v2.aqua-compose.berthelot.io",
+    "release": "gitmoji-changelog"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.2",
+    "coveralls": "^3.0.3",
+    "deep-object-diff": "^1.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "gitmoji-changelog": "^1.1.0",
+    "inquirer": "^6.2.2",
+    "prettier": "^1.16.4",
+    "slugify": "^1.3.4"
+  }
+}

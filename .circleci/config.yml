@@ -1,0 +1,91 @@
+version: 2.1
+jobs:
+  build-project:
+    docker:
+      - image: cypress/base:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: npm ci
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - ./*
+
+  check:
+    docker:
+      - image: cypress/base:10
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: "echo repo_token: ${COVERALLS} > .coveralls.yml"
+      - run: npm run test -- --coverage && npm run coveralls
+
+  deploy: &deploy-job
+    docker:
+      - image: cypress/base:10
+    working_directory: ~/repo
+    environment:
+      NODE_ENV: production
+    steps:
+      - attach_workspace:
+          at: ./
+      - run: npm run deploy:${NODE_ENV}
+
+  deploy-v1:
+    <<: *deploy-job
+    environment:
+      NODE_ENV: v1
+  deploy-v2:
+    <<: *deploy-job
+    environment:
+      NODE_ENV: v2
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-project:
+          filters:
+            tags:
+              only: /.*/
+      - check:
+          requires:
+            - build-project
+          filters:
+            tags:
+              only: /.*/
+
+      - deploy:
+          requires:
+            - check
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /.*/
+      - deploy-v1:
+          requires:
+            - check
+          filters:
+            branches:
+              only: v1
+            tags:
+              only: /.*/
+      - deploy-v2:
+          requires:
+            - check
+          filters:
+            branches:
+              only: v2
+            tags:
+              only: /.*/
