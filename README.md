@@ -28,6 +28,18 @@ We've added some other tools and technologie like:
 
 This website is hosted by Surge.sh
 
+## Design system
+
+This side projet was an excuse to experiment the construction of a whole design system.
+
+V1 website use material-ui design system, v2 is a partial reconstruction of the website according to work of an designer. Final version use our own design system.
+
+We've exeperiment lots of tools to collaborate between designers and developper:
+
+- [Invision](https://zenika.invisionapp.com/share/5WQJK2YBPTM#/347553498_aquarium_-_1-1)
+- [Zeroheight](https://zeroheight.com/5edidxle7)
+- More to come
+
 ## Thanks
 
 Yazmin Alanis from the Noun Project for the icon of v1 website.
