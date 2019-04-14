@@ -38,18 +38,4 @@ describe("Layout", () => {
 
     expect(component.debug()).toContain("childContent");
   });
-
-  it("should open the menu when clicking on the button", () => {
-    const component = mount(
-      <Layout>
-        <p>TOTO</p>
-      </Layout>
-    );
-
-    expect(component.find("form").exists()).toBeFalsy();
-
-    component.find("button").simulate("click");
-
-    expect(component.find("form").exists()).toBeTruthy();
-  });
 });

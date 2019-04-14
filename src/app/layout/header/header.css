@@ -1,0 +1,14 @@
+.app-header h1 {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12vh;
+}
+
+@media (max-width: 750px) {
+  header.app-header {
+    display: none;
+  }
+}

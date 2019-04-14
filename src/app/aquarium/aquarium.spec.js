@@ -16,14 +16,6 @@ jest.mock("../useRedux", () => {
   };
 });
 
-jest.mock("./fish-picker/fish-picker", () => {
-  return {
-    FishPicker: () => {
-      return <div className="FishPicker" />;
-    }
-  };
-});
-
 jest.mock("./aquarium-fishes/aquarium-fishes", () => {
   return {
     AquariumFishes: () => {

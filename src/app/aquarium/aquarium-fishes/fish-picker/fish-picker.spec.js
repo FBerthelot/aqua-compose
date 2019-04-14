@@ -1,9 +1,9 @@
 import React from "react";
 import { mount } from "enzyme";
 import { FishPicker } from "./fish-picker";
-import { setState } from "../../useRedux";
+import { setState } from "../../../useRedux";
 
-jest.mock("../../useRedux", () => {
+jest.mock("../../../useRedux", () => {
   const dispatch = jest.fn();
   let statemock;
   return {
@@ -66,7 +66,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Dialog").props().open).toBe(true);
   });
@@ -77,7 +77,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Modal").text()).toContain(2);
   });
@@ -93,7 +93,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Modal").text()).toContain(2);
   });
@@ -106,7 +106,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Modal").text()).toContain(2);
   });
@@ -119,7 +119,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Modal").text()).toContain(2);
   });
@@ -132,7 +132,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     expect(component.find("Modal").text()).toContain(2);
   });
@@ -142,7 +142,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
 
     defaultStore.fishes.forEach(fish => {
       expect(component.find("Modal").text()).toContain(fish.name);
@@ -154,7 +154,7 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
     component
       .find("Modal DialogActions Button")
       .at(0)
@@ -167,7 +167,7 @@ describe("fish-picker", () => {
     setState(defaultStore);
     const component = mount(<FishPicker />);
 
-    component.find("Fab").simulate("click");
+    component.find("Button").simulate("click");
     component
       .find("Modal")
       .find("form")

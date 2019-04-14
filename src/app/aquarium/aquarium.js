@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useRedux } from "../useRedux";
-import { FishPicker } from "./fish-picker/fish-picker";
 import { AquariumFishes } from "./aquarium-fishes/aquarium-fishes";
 import { AquariumVariables } from "./aquarium-variables/aquarium-variables";
+import "./aquarium.css";
 
 export const Aquarium = () => {
   const mapDispatch = dispatch => ({
@@ -20,9 +20,9 @@ export const Aquarium = () => {
 
   return (
     <section className="aquarium">
-      <AquariumFishes />
       <AquariumVariables />
-      <FishPicker />
+
+      <AquariumFishes />
     </section>
   );
 };

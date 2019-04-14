@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import { Header } from "../../layout/header/header";
 import useReactRouter from "use-react-router";
 import "./capacity.css";
 
@@ -38,11 +39,7 @@ export const Capacity = () => {
 
   return (
     <div className="capacity">
-      <header>
-        <h1>
-          <img alt="Aqua Compose" src="/icon/icon-with-text.svg" />
-        </h1>
-      </header>
+      <Header />
 
       <Paper component="main" className="content" elevation={2}>
         <Typography variant="h2" component="h2">

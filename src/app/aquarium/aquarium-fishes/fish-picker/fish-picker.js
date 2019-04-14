@@ -1,7 +1,6 @@
 import "./fish-picker.css";
 import React, { useState } from "react";
 
-import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -15,8 +14,8 @@ import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
 
-import { useRedux } from "../../useRedux";
-import { getMinMaxOfkey } from "../aquarium.logic";
+import { useRedux } from "../../../useRedux";
+import { getMinMaxOfkey } from "../../aquarium.logic";
 
 export const FishPicker = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -80,14 +79,15 @@ export const FishPicker = () => {
 
   return (
     <>
-      <Fab
+      <Button
+        variant="contained"
         color="primary"
-        aria-label="Add"
+        type="button"
+        className="fish-picker-button"
         onClick={() => setDialogOpen(true)}
-        className="add-fish-button"
       >
-        <AddIcon />
-      </Fab>
+        J'ajoute un poisson
+      </Button>
 
       <Dialog
         open={isDialogOpen}
@@ -164,65 +164,3 @@ export const FishPicker = () => {
     </>
   );
 };
-
-/*
-
-
-
-
-
-import { getMinMaxOfkey } from "../aquarium.logic";
-
-/*
-export const FishPicker = ({ fishes, addFishOnAquarium, aquarium }) => {
-  const [isDialogOpen, setDialogOpen] = useState(false);
-  const [selectedFish, setSelectedFish] = useState(null);
-  const [nbOfFishes, setNbOfFishes] = useState(0);
-  const [isPristine, setFormPristine] = useState(true);
-
-  const formIsValid = !!(
-    nbOfFishes &&
-    selectedFish &&
-    nbOfFishes >= selectedFish.minimumPopulation
-  );
-  const numberFieldIsValid = isPristine || formIsValid;
-
-        <DialogContent>
-          <GridList cellHeight={180}>
-            {filteredFish.map((fish, i) => (
-              <GridListTile key={`${fish.name}-${i}`}>
-                <img src={fish.picture} alt={fish.surname} />
-                <GridListTileBar
-                  title={fish.name}
-                  subtitle={<span>{fish.category}</span>}
-                  actionIcon={
-                    <div className="fish-info-buttons">
-                      <IconButton
-                        href={fish.link}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        <InfoIcon className="fish-info-button" />
-                      </IconButton>
-                      <IconButton
-                        onClick={() => {
-                          setSelectedFish(fish);
-                          setFormPristine(false);
-                          setNbOfFishes(fish.minimumPopulation);
-                        }}
-                      >
-                        <AddIcon className="fish-info-button" />
-                      </IconButton>
-                    </div>
-                  }
-                />
-              </GridListTile>
-            ))}
-          </GridList>
-        </DialogContent>
-
-
-      </Dialog>
-    </>
-  );
-};*/

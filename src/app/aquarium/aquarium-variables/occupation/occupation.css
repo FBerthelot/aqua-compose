@@ -1,0 +1,29 @@
+.aquarium-data .occupation-first_line,
+.aquarium-data .occupation-second_line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aquarium-data .occupation-first_line-fish_number {
+  display: flex;
+}
+
+.aquarium-data .occupation-bar {
+  width: 95%;
+}
+
+@media (max-width: 750px) {
+  .aquarium-data .occupation-bar {
+    width: 80%;
+  }
+
+  .aquarium-data .occupation-first_line,
+  .aquarium-data .occupation-second_line {
+    padding: 0 0.5rem;
+  }
+
+  .aquarium-data .occupation-first_line-fish_number {
+    display: none;
+  }
+}

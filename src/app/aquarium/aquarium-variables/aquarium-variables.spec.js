@@ -48,6 +48,8 @@ describe("Aquarium Variables", () => {
     };
 
     setState(defaultStore);
+
+    window.innerHeight = 750;
   });
 
   it("should not throw an error", () => {
@@ -57,6 +59,11 @@ describe("Aquarium Variables", () => {
   it("should display the aquarium volume", () => {
     const cmp = mount(<AquariumVariables />);
     expect(cmp.text()).toContain("545");
+  });
+
+  it("should display the total number of fishes", () => {
+    const cmp = mount(<AquariumVariables />);
+    expect(cmp.text()).toContain("32");
   });
 
   it("should display the occupation of the Aquarium", () => {
@@ -85,6 +92,6 @@ describe("Aquarium Variables", () => {
     });
 
     const cmp = mount(<AquariumVariables />);
-    expect(cmp.text()).toContain("NC");
+    expect(cmp.text()).toContain("non connu");
   });
 });

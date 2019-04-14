@@ -1,4 +1,4 @@
-/* import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 export const fishType = {
   name: PropTypes.string.isRequired,
@@ -27,4 +27,4 @@ export const aquariumType = PropTypes.shape({
     })
   ).isRequired,
   volume: PropTypes.number.isRequired
-});*/
+});

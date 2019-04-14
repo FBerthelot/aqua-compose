@@ -18,6 +18,23 @@ jest.mock("../../useRedux", () => {
   };
 });
 
+jest.mock("./fish-picker/fish-picker", () => {
+  return {
+    FishPicker: () => <div />
+  };
+});
+
+const baseFishData = {
+  name: "nemo",
+  surname: "clown",
+  category: "mer",
+  adultSize: 15,
+  minimumPopulation: 2,
+  minimumVolume: 100,
+  picture: "null",
+  link: "gotolink"
+};
+
 describe("Aquarium Fishes", () => {
   let defaultStore;
   beforeEach(() => {
@@ -25,12 +42,14 @@ describe("Aquarium Fishes", () => {
       aquarium: {
         fishes: [
           {
+            ...baseFishData,
             name: "bloby",
             picture: "r",
             lifeZone: ["Fond"],
             water: { temperature: [5, 6], PH: [6, 7], GH: [0, 10] }
           },
           {
+            ...baseFishData,
             name: "golden",
             picture: "a",
             lifeZone: ["Surface"],
@@ -38,6 +57,7 @@ describe("Aquarium Fishes", () => {
             water: { temperature: [5, 6], PH: [6, 7], GH: [0, 245425245] }
           },
           {
+            ...baseFishData,
             name: "volley",
             picture: "e",
             lifeZone: ["Milieu"],
@@ -126,5 +146,13 @@ describe("Aquarium Fishes", () => {
       .onChange({ preventDefault: () => {}, target: { value: "-1" } });
 
     expect(dispatch).not.toHaveBeenCalled();
+  });
+
+  it("should display parametrage button when no fish in the aquarium", () => {
+    defaultStore.aquarium.fishes = [];
+    setState(defaultStore);
+
+    const cmp = mount(<AquariumFishes />);
+    expect(cmp.html()).toContain("Je paramètre");
   });
 });

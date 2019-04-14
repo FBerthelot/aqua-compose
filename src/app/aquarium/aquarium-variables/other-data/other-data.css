@@ -1,0 +1,54 @@
+.aquarium-data .aquarium-data-other_data {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aquarium-data .aquarium-data-other_data li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.aquarium-data .aquarium-data-other_data li img {
+  width: 24px;
+}
+
+.aquarium-data .aquarium-data-illustration {
+  margin-right: 0.75rem;
+}
+
+.aquarium-data .aquarium-data-info {
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 750px) {
+  .aquarium-data .aquarium-data-other_data {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .aquarium-data .aquarium-data-illustration {
+    margin-right: 0.5rem;
+  }
+
+  .aquarium-data .aquarium-data-info {
+    margin-top: 0.2rem;
+    padding: 0;
+  }
+
+  .aquarium-data .aquarium-data-other_data li {
+    width: 100%;
+    padding: 0.1rem 0;
+  }
+
+  .aquarium-data-other_data-expended {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+  }
+}

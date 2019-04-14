@@ -1,30 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import "./header.css";
 
-export const Header = ({ setDrawerIsOpen }) => {
+export const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar component="header" className="app-header" position="static">
       <Toolbar>
-        <IconButton
-          onClick={() => setDrawerIsOpen(true)}
-          color="inherit"
-          aria-label="Menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" color="inherit">
-          Aqua compose
-        </Typography>
+        <h1>
+          <img alt="Aqua Compose" src="/icon/icon-with-text.svg" />
+        </h1>
       </Toolbar>
     </AppBar>
   );
-};
-
-Header.propTypes = {
-  setDrawerIsOpen: PropTypes.func.isRequired
 };

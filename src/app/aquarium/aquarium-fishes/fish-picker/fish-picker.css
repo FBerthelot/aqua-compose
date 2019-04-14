@@ -1,13 +1,11 @@
+button.fish-picker-button {
+  margin: 1rem;
+}
+
 .fish-info-buttons {
   display: flex;
 }
 
 svg.fish-info-button {
   color: rgba(255, 255, 255, 0.54);
-}
-
-button.add-fish-button {
-  position: fixed;
-  bottom: 3vh;
-  right: 3vh;
 }
