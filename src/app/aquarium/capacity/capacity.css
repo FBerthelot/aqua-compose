@@ -1,0 +1,48 @@
+.capacity header h1 {
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 12vh;
+}
+
+.capacity .content {
+  width: 80vw;
+  height: 70vh;
+  margin-top: 10vh;
+  margin-left: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.capacity .content h2 {
+  padding: 1rem;
+}
+
+.capacity .content form {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .capacity header {
+    display: none;
+  }
+
+  .capacity .content {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .capacity .content form {
+    padding: 2rem;
+  }
+}
