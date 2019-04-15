@@ -2,3 +2,45 @@
   padding: 1rem;
   width: 18vw;
 }
+
+.fish_card-title,
+.fish_card-subtitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.fish_card-subtitle {
+  height: 2.25rem;
+}
+
+.fish_card-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.fish_card-data li {
+  width: 50%;
+  padding: 0.5rem 0;
+  display: flex;
+}
+
+.fish_card-actions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fish_card-number_changer {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 750px) {
+  .fish_card {
+    padding: 1rem 2.5vw;
+    width: 95vw;
+  }
+}

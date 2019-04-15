@@ -28,7 +28,7 @@ describe("Occupation", () => {
     expect(cmp.find("WithStyles(ExpansionPanel)").exists()).toBe(false);
   });
 
-  it("should display the number at singular", () => {
+  it("should display the number at plural", () => {
     window.innerWidth = 700;
 
     expect(shallow(<OtherData {...defaultProps} />).html()).toContain(
@@ -36,15 +36,20 @@ describe("Occupation", () => {
     );
   });
 
-  it("should display the volume", () => {
+  it("should display the number at singular", () => {
     defaultProps.nbFishes = 1;
+    window.innerWidth = 700;
 
+    expect(shallow(<OtherData {...defaultProps} />).html()).toContain(
+      "1 poisson"
+    );
+  });
+
+  it("should display the volume", () => {
     expect(shallow(<OtherData {...defaultProps} />).html()).toContain("80");
   });
 
   it("should display the minMaxTemperature", () => {
-    defaultProps.nbFishes = 1;
-
     expect(shallow(<OtherData {...defaultProps} />).html()).toContain(
       "10 à 20"
     );

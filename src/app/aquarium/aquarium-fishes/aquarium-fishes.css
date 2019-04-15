@@ -19,3 +19,9 @@
 .aquarium-no_fish-img {
   height: 30vh;
 }
+
+@media (max-width: 750px) {
+  .aquarium-fishes-list {
+    width: 100vw;
+  }
+}

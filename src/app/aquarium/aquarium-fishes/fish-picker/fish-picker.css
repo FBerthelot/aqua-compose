@@ -1,3 +1,18 @@
+.form-picker-title {
+  text-align: center;
+  width: 100%;
+}
+.form-picker-button-close {
+  position: absolute;
+}
+
+.form-picker-content {
+  margin-top: 4.5rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 button.fish-picker-button {
   margin: 1rem;
 }
@@ -8,4 +23,14 @@ button.fish-picker-button {
 
 svg.fish-info-button {
   color: rgba(255, 255, 255, 0.54);
+}
+
+@media (max-width: 750px) {
+  h2.form-picker-title {
+    font-size: 1.5rem;
+  }
+
+  div.form-picker-content {
+    padding: 0;
+  }
 }

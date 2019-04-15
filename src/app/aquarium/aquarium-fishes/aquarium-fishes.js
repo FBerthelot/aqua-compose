@@ -15,16 +15,13 @@ export const AquariumFishes = () => {
       fishes: sortFishesByLifeZone(state.aquarium.fishes)
     }),
     dispatch => ({
-      setNbOfFishes: fish => e => {
-        e.preventDefault();
-        if (Number(e.target.value) >= fish.minimumPopulation) {
-          dispatch({
-            type: "CHANGE_NB_OF_FISHES_IN_AQUARIUM",
-            payload: { name: fish.name, number: Number(e.target.value) }
-          });
-        }
+      setNbOfFishes: (fish, nb) => {
+        dispatch({
+          type: "CHANGE_NB_OF_FISHES_IN_AQUARIUM",
+          payload: { name: fish.name, number: nb }
+        });
       },
-      removeFish: name => () =>
+      removeFish: name =>
         dispatch({
           type: "REMOVE_FISH_FROM_AQUARIUM",
           payload: { name }
@@ -41,8 +38,13 @@ export const AquariumFishes = () => {
             <FishCard
               key={fish.name}
               fish={fish}
-              setNbOfFishes={setNbOfFishes}
-              removeFish={removeFish}
+              onNbFishChange={nb => setNbOfFishes(fish, nb)}
+              action={{
+                name: "Supprimer",
+                handler: () => {
+                  removeFish(fish.name);
+                }
+              }}
             />
           ))}
         </section>

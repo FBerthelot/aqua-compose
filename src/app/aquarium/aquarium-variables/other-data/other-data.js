@@ -8,6 +8,7 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { RangeDisplayer } from "../../../common/range-displayer";
 
 export const OtherData = ({
   volume,
@@ -21,46 +22,26 @@ export const OtherData = ({
       <>
         <ul className="aquarium-data-other_data">
           <li>
-            <img
-              alt="Volume"
-              src="/icon/equerre.svg"
-              className="aquarium-data-illustration"
-            />
-            <Typography component="span">{volume}&nbsp;L</Typography>
+            <RangeDisplayer range={[volume, volume]} type="volume" unit="L" />
           </li>
           <li>
-            <img
-              alt="Temperature"
-              src="/icon/temperature.svg"
-              className="aquarium-data-illustration"
+            <RangeDisplayer
+              known={nbFishes > 0}
+              range={minMaxTemperature}
+              type="temperature"
+              unit="°C"
             />
-            <Typography component="span">
-              {nbFishes > 0
-                ? `${minMaxTemperature[0]} à ${minMaxTemperature[1]} °C`
-                : "non connu"}
-            </Typography>
           </li>
           <li>
-            <img
-              alt="PH"
-              src="/icon/ph.svg"
-              className="aquarium-data-illustration"
-            />
-            <Typography component="span">
-              {nbFishes > 0 ? `${minMaxPH[0]} à ${minMaxPH[1]}` : "non connu"}
-            </Typography>
+            <RangeDisplayer known={nbFishes > 0} range={minMaxPH} type="ph" />
           </li>
           <li>
-            <img
-              alt="GH"
-              src="/icon/gh.svg"
-              className="aquarium-data-illustration"
+            <RangeDisplayer
+              known={nbFishes > 0}
+              range={minMaxGH}
+              type="gh"
+              unit="°d"
             />
-            <Typography component="span">
-              {nbFishes > 0
-                ? `${minMaxGH[0]} à ${minMaxGH[1]}&nbsp;°d`
-                : "non connu"}
-            </Typography>
           </li>
         </ul>
         <Typography className="aquarium-data-info" variant="caption">
@@ -88,46 +69,26 @@ export const OtherData = ({
             </Typography>
           </li>
           <li>
-            <img
-              alt="Volume"
-              src="/icon/equerre.svg"
-              className="aquarium-data-illustration"
-            />
-            <Typography component="span">{volume}&nbsp;L</Typography>
+            <RangeDisplayer range={[volume, volume]} type="volume" unit="L" />
           </li>
           <li>
-            <img
-              alt="Temperature"
-              src="/icon/temperature.svg"
-              className="aquarium-data-illustration"
+            <RangeDisplayer
+              known={nbFishes > 0}
+              range={minMaxTemperature}
+              type="temperature"
+              unit="°C"
             />
-            <Typography component="span">
-              {nbFishes > 0
-                ? `${minMaxTemperature[0]} à ${minMaxTemperature[1]} °C`
-                : "non connu"}
-            </Typography>
           </li>
           <li>
-            <img
-              alt="PH"
-              src="/icon/ph.svg"
-              className="aquarium-data-illustration"
-            />
-            <Typography component="span">
-              {nbFishes > 0 ? `${minMaxPH[0]} à ${minMaxPH[1]}` : "non connu"}
-            </Typography>
+            <RangeDisplayer known={nbFishes > 0} range={minMaxPH} type="ph" />
           </li>
           <li>
-            <img
-              alt="GH"
-              src="/icon/gh.svg"
-              className="aquarium-data-illustration"
+            <RangeDisplayer
+              known={nbFishes > 0}
+              range={minMaxGH}
+              type="gh"
+              unit="°d"
             />
-            <Typography component="span">
-              {nbFishes > 0
-                ? `${minMaxGH[0]} à ${minMaxGH[1]}&nbsp;°d`
-                : "non connu"}
-            </Typography>
           </li>
         </ul>
 

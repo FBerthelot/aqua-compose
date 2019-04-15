@@ -1,0 +1,9 @@
+.rang-displayer-illustration {
+  margin-right: 0.75rem;
+}
+
+@media (max-width: 750px) {
+  .rang-displayer-illustration {
+    margin-right: 0.5rem;
+  }
+}

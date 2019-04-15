@@ -111,9 +111,10 @@ describe("Aquarium Fishes", () => {
     const cmp = mount(<AquariumFishes />);
 
     cmp
-      .find("IconButton")
-      .at(1)
-      .simulate("click");
+      .find("FishCard")
+      .at(0)
+      .props()
+      .action.handler("click");
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "REMOVE_FISH_FROM_AQUARIUM",
@@ -125,27 +126,15 @@ describe("Aquarium Fishes", () => {
     const cmp = mount(<AquariumFishes />);
 
     cmp
-      .find("TextField")
+      .find("FishCard")
       .at(0)
       .props()
-      .onChange({ preventDefault: () => {}, target: { value: "40" } });
+      .onNbFishChange(40);
 
     expect(dispatch).toHaveBeenCalledWith({
       type: "CHANGE_NB_OF_FISHES_IN_AQUARIUM",
       payload: { name: defaultStore.aquarium.fishes[1].name, number: 40 }
     });
-  });
-
-  it("should not dispatch change nbOfFishes when modifying the input with forbiden value", () => {
-    const cmp = mount(<AquariumFishes />);
-
-    cmp
-      .find("TextField")
-      .at(0)
-      .props()
-      .onChange({ preventDefault: () => {}, target: { value: "-1" } });
-
-    expect(dispatch).not.toHaveBeenCalled();
   });
 
   it("should display parametrage button when no fish in the aquarium", () => {

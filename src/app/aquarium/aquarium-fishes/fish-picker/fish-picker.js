@@ -1,35 +1,28 @@
 import "./fish-picker.css";
 import React, { useState } from "react";
 
-import AddIcon from "@material-ui/icons/Add";
 import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import Typography from "@material-ui/core/Typography";
+
+import AppBar from "@material-ui/core/AppBar";
 import DialogContent from "@material-ui/core/DialogContent";
 import IconButton from "@material-ui/core/IconButton";
-import InfoIcon from "@material-ui/icons/Info";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
-import DialogActions from "@material-ui/core/DialogActions";
-import TextField from "@material-ui/core/TextField";
+import Slide from "@material-ui/core/Slide";
+
+import { FishCard } from "../fish-card/fish-card";
 
 import { useRedux } from "../../../useRedux";
 import { getMinMaxOfkey } from "../../aquarium.logic";
 
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
+
 export const FishPicker = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
-
-  const [selectedFish, setSelectedFish] = useState(null);
-  const [nbOfFishes, setNbOfFishes] = useState(0);
-  const [isPristine, setFormPristine] = useState(true);
-
-  const formIsValid = !!(
-    nbOfFishes &&
-    selectedFish &&
-    nbOfFishes >= selectedFish.minimumPopulation
-  );
-  const numberFieldIsValid = isPristine || formIsValid;
 
   const { fishes, addFishInAquarium } = useRedux(
     state => {
@@ -90,76 +83,47 @@ export const FishPicker = () => {
       </Button>
 
       <Dialog
+        fullScreen
+        TransitionComponent={Transition}
         open={isDialogOpen}
         onClose={() => setDialogOpen(false)}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">
-          Ajouter un poisson ({fishes.length})
-        </DialogTitle>
+        <AppBar>
+          <Toolbar>
+            <IconButton
+              className="form-picker-button-close"
+              color="inherit"
+              onClick={() => setDialogOpen(false)}
+              aria-label="Close"
+            >
+              <CloseIcon />
+            </IconButton>
+            <Typography
+              className="form-picker-title"
+              variant="h3"
+              component="h2"
+            >
+              J'ajoute des poissons
+            </Typography>
+          </Toolbar>
+        </AppBar>
 
-        <DialogContent>
-          <GridList cellHeight={180}>
-            {fishes.map((fish, i) => (
-              <GridListTile key={fish.name}>
-                <img src={fish.picture} alt={fish.surname} />
-                <GridListTileBar
-                  title={fish.name}
-                  subtitle={<span>{fish.category}</span>}
-                  actionIcon={
-                    <div className="fish-info-buttons">
-                      <IconButton
-                        href={fish.link}
-                        target="_blank"
-                        rel="noopener"
-                      >
-                        <InfoIcon className="fish-info-button" />
-                      </IconButton>
-                      <IconButton
-                        onClick={() => {
-                          console.log(fish, "added");
-                          setSelectedFish(fish);
-                          setFormPristine(false);
-                          setNbOfFishes(fish.minimumPopulation);
-                        }}
-                      >
-                        <AddIcon className="fish-info-button" />
-                      </IconButton>
-                    </div>
-                  }
-                />
-              </GridListTile>
-            ))}
-          </GridList>
-        </DialogContent>
-
-        <DialogActions>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              setDialogOpen(false);
-              addFishInAquarium(selectedFish, nbOfFishes);
-            }}
-          >
-            <TextField
-              label="Nombre de poissons"
-              value={nbOfFishes}
-              onChange={e => {
-                setNbOfFishes(Number(e.target.value));
+        <DialogContent className="form-picker-content">
+          {fishes.map((fish, i) => (
+            <FishCard
+              key={fish.name}
+              fish={fish}
+              action={{
+                name: "J'ajoute",
+                handler: nbOfFishes => {
+                  setDialogOpen(false);
+                  addFishInAquarium(fish, nbOfFishes);
+                }
               }}
-              required
-              min={selectedFish ? selectedFish.minimumPopulation : 0}
-              error={!numberFieldIsValid}
-              type="number"
             />
-            <Button onClick={() => setDialogOpen(false)} color="primary">
-              Annuler
-            </Button>
-            <Button type="submit" color="primary" disabled={!formIsValid}>
-              Ajouter
-            </Button>
-          </form>
-        </DialogActions>
+          ))}
+        </DialogContent>
       </Dialog>
     </>
   );

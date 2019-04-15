@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import { FishPicker } from "./fish-picker";
-import { setState } from "../../../useRedux";
+import { setState, dispatch } from "../../../useRedux";
 
 jest.mock("../../../useRedux", () => {
   const dispatch = jest.fn();
@@ -18,23 +18,38 @@ jest.mock("../../../useRedux", () => {
   };
 });
 
+const baseFishData = {
+  name: "nemo",
+  surname: "clown",
+  category: "mer",
+  adultSize: 15,
+  minimumPopulation: 2,
+  minimumVolume: 100,
+  picture: "null",
+  link: "gotolink",
+  lifeZone: []
+};
+
 describe("fish-picker", () => {
   let defaultStore;
   beforeEach(() => {
     defaultStore = {
       fishes: [
         {
+          ...baseFishData,
           minimumPopulation: 4,
           minimumVolume: 80,
           name: "poissonRouge",
           water: { PH: [5, 7], temperature: [25, 30], GH: [2, 20] }
         },
         {
+          ...baseFishData,
           minimumVolume: 80,
           name: "poissonJaune",
           water: { PH: [6, 9], temperature: [15, 19], GH: [1, 2] }
         },
         {
+          ...baseFishData,
           minimumVolume: 50,
           name: "poissonViolet",
           water: { PH: [2, 3], temperature: [20, 25], GH: [10, 15] }
@@ -85,6 +100,7 @@ describe("fish-picker", () => {
   it("should show the number of fish available for the aquarium minus those who already are in", () => {
     defaultStore.aquarium.fishes = [
       {
+        ...baseFishData,
         name: "poissonRouge",
         water: { PH: [0, 14], temperature: [0, 100], GH: [0, 100] }
       }
@@ -156,24 +172,33 @@ describe("fish-picker", () => {
 
     component.find("Button").simulate("click");
     component
-      .find("Modal DialogActions Button")
+      .find("Modal IconButton")
       .at(0)
       .simulate("click");
 
     expect(component.find("Dialog").props().open).toBe(false);
   });
 
-  xit("should close dialog while submiting form", () => {
+  it("should show dispatch ADD_FISH_IN_AQUARIUM when adding a fish", () => {
     setState(defaultStore);
+
     const component = mount(<FishPicker />);
 
     component.find("Button").simulate("click");
     component
-      .find("Modal")
-      .find("form")
+      .find("FishCard")
+      .at(0)
       .props()
-      .onSubmit({ preventDefault: jest.fn() });
+      .action.handler(40);
 
-    expect(component.find("Dialog").props().open).toBe(false);
+    expect(dispatch).toHaveBeenCalledWith({
+      type: "ADD_FISH_IN_AQUARIUM",
+      payload: { fish: defaultStore.fishes[0], nbOfFishes: 40 }
+    });
+
+    component
+      .find("Dialog")
+      .props()
+      .onClose();
   });
 });
