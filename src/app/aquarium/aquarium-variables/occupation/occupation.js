@@ -30,7 +30,7 @@ export const Occupation = ({ nbFishes, occupationPercent }) => {
           variant="determinate"
           value={occupationPercent}
         />
-        <div>{Math.floor(occupationPercent)} %</div>
+        <div>{Math.floor(occupationPercent)}&nbsp;%</div>
       </div>
     </article>
   );

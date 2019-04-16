@@ -1,8 +1,6 @@
 import "./aquarium-fishes.css";
 import React from "react";
 
-import Button from "@material-ui/core/Button";
-
 import { FishCard } from "./fish-card/fish-card";
 import { FishPicker } from "./fish-picker/fish-picker";
 
@@ -54,9 +52,6 @@ export const AquariumFishes = () => {
       <>
         <img src="/icon/carpe.svg" className="aquarium-no_fish-img" alt="" />
         <FishPicker />
-        <Button variant="contained" color="secondary" type="submit">
-          Je paramètre
-        </Button>
       </>
     );
 

@@ -136,12 +136,4 @@ describe("Aquarium Fishes", () => {
       payload: { name: defaultStore.aquarium.fishes[1].name, number: 40 }
     });
   });
-
-  it("should display parametrage button when no fish in the aquarium", () => {
-    defaultStore.aquarium.fishes = [];
-    setState(defaultStore);
-
-    const cmp = mount(<AquariumFishes />);
-    expect(cmp.html()).toContain("Je paramètre");
-  });
 });

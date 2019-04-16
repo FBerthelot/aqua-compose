@@ -68,7 +68,7 @@ describe("Aquarium Variables", () => {
 
   it("should display the occupation of the Aquarium", () => {
     const cmp = mount(<AquariumVariables />);
-    expect(cmp.text()).toContain("68 %");
+    expect(cmp.text()).toContain("68");
   });
 
   it("should display the acceptable range of temperature of the Aquarium", () => {

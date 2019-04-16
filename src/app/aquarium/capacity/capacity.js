@@ -48,7 +48,7 @@ export const Capacity = () => {
 
         <form onSubmit={onSubmit}>
           <TextField
-            label="Quel est la capcité de votre aquarium ?"
+            label="quelle est la capacité de votre aquarium ?"
             value={aquariumVolume}
             placeholder="120"
             required
