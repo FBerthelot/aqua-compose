@@ -1,0 +1,32 @@
+.typography.typography_default {
+  font-family: "Dosis", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+.typography.typography_scientific-name {
+  font-family: Georgia, Times;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.typography.typography_h4,
+.typography.typography_h3 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.typography.typography_h2 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 30px;
+}
+
+.typography.typography_h1 {
+  font-family: "Dosis", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+}

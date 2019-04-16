@@ -8,7 +8,7 @@
             }
 
             .st1 {
-                fill: #00232C
+                fill: #ffffff
             }
         </style>
 
@@ -97,9 +97,6 @@
         </g>
 
 
-
-
-
     </defs>
 
     <use href="#">
@@ -122,7 +119,7 @@
         <animate id="A17" attributeName="href" from="#frame_3" to="#frame_3" begin="A16.end" dur="200ms" />
         <animate id="A18" attributeName="href" from="#frame_2" to="#frame_2" begin="A17.end" dur="200ms" />
 
-       
+
         <!--<animate id="bb" attributeName="x" from="-150" to="250" begin="0;bb.end" dur="8000ms" />-->
     </use>
 </svg>

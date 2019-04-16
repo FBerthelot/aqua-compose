@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useRedux } from "../../useRedux";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+import { InputTextUnit } from "../../design-system/input-text-unit/input-text-unit";
+import { Typography } from "../../design-system/typography/typography";
 import { Header } from "../../layout/header/header";
+import { Button } from "../../design-system/button/button";
 import useReactRouter from "use-react-router";
 import "./capacity.css";
 
@@ -41,15 +40,26 @@ export const Capacity = () => {
     <div className="capacity">
       <Header />
 
-      <Paper component="main" className="content" elevation={2}>
-        <Typography variant="h2" component="h2">
+      <main className="content">
+        <Typography variant="h1" component="h2">
           Mon Aquarium
         </Typography>
 
         <form onSubmit={onSubmit}>
-          <TextField
-            label="quelle est la capacité de votre aquarium ?"
+          <Typography variant="h1" component="label" htmlFor="capacity-field">
+            Quelle est la capacité de votre aquarium ?
+          </Typography>
+
+          <Typography>
+            Pour le bien être de vos poissons, il est recommandé d'avoir une
+            capacité minimum de 120 L
+          </Typography>
+
+          <InputTextUnit
+            id="capacity-field"
+            className="capacity-field-class"
             value={aquariumVolume}
+            unit="L"
             placeholder="120"
             required
             min="0"
@@ -57,23 +67,13 @@ export const Capacity = () => {
             onChange={handleVolumeChange}
           />
 
-          <Typography>
-            Pour le bien être de vos poissons, il est recommandé d'avoir une
-            capacité minimum de 120 L
-          </Typography>
-
           <div>
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              disabled={!aquariumVolume}
-            >
+            <Button type="submit" disabled={!aquariumVolume}>
               J'enregiste
             </Button>
           </div>
         </form>
-      </Paper>
+      </main>
     </div>
   );
 };

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M300,50 V100 H0 V50 h0   q30,0 60,-10 q30,-10 60,0 q30,10 60,10 z">
+    <animate id="a1" attributeName="d" dur="0.75s" begin="0;a2.end"
+      from="M300,50 V100 H0 V50 h0   q30,0 60,-10 q30,-10 60,0 q30,10 60,10 z"
+        to="M300,50 V100 H0 V50 h150 q30,0 60,-10 q30,-10 60,0 q30,10 60,10 z" />
+    <animate id="a2" attributeName="d" dur="0.75s" begin="a1.end"
+      from="M300,50 V100 H0 V50 h150 q30,0 60,-10 q30,-10 60,0 q30,10 60,10 z"
+        to="M300,50 V100 H0 V50 h0   q30,0 60,-10 q30,-10 60,0 q30,10 60,10 z" />
+  </path>
+</svg>
