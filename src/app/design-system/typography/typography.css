@@ -6,7 +6,7 @@
 }
 
 .typography.typography_scientific-name {
-  font-family: Georgia, Times;
+  font-family: Georgia-italic, Times;
   font-size: 18px;
   font-weight: 400;
 }
@@ -22,7 +22,7 @@
   font-family: "Dosis", sans-serif;
   font-weight: 800;
   font-size: 40px;
-  line-height: 40px;
+  line-height: 50px;
 }
 
 .typography.typography_h1 {

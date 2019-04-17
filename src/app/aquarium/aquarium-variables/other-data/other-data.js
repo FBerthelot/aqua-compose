@@ -40,8 +40,8 @@ export const OtherData = ({
             />
           </li>
         </ul>
-        <Typography className="aquarium-data-info" variant="caption">
-          * données éstimées par rapport aux poissons choisis
+        <Typography className="aquarium-data-info">
+          *Données éstimées par rapport aux poissons choisis
         </Typography>
       </>
     );
@@ -93,7 +93,7 @@ export const OtherData = ({
       </ul>
 
       <Typography className="aquarium-data-info">
-        * données éstimées par rapport aux poissons choisis
+        *Données éstimées par rapport aux poissons choisis
       </Typography>
     </div>
   );

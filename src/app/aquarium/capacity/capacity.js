@@ -69,7 +69,7 @@ export const Capacity = () => {
 
           <div>
             <Button type="submit" disabled={!aquariumVolume}>
-              J'enregiste
+              J'enregistre
             </Button>
           </div>
         </form>

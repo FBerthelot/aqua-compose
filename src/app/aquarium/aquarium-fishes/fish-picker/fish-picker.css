@@ -11,6 +11,7 @@
   position: fixed;
   transform: translateY(100%);
   transition: transform 1s ease;
+  z-index: 1;
 }
 
 .form-picker-modal_open {
@@ -38,11 +39,14 @@
   flex-wrap: wrap;
   overflow: scroll;
   height: 85vh;
+  width: 80%;
+  margin-left: 10%;
 }
 
 button.fish-picker-button {
   margin: 1rem;
   background-color: white;
+  border: 1px solid white;
 }
 
 .form-picker-button-close {
