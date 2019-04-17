@@ -1,20 +1,57 @@
+.form-picker {
+  overflow: hidden;
+  position: relative;
+}
+
+.form-picker-modal {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #afd6e5;
+  position: fixed;
+  transform: translateY(100%);
+  transition: transform 1s ease;
+}
+
+.form-picker-modal_open {
+  transform: translateY(0);
+}
+
+.form-picker-header {
+  background-color: #afd6e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+  height: 15vh;
+}
+
 .form-picker-title {
+  margin-top: 1.5rem;
   text-align: center;
   width: 100%;
 }
-.form-picker-button-close {
-  position: absolute;
-}
 
 .form-picker-content {
-  margin-top: 4.5rem;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  overflow: scroll;
+  height: 85vh;
 }
 
 button.fish-picker-button {
   margin: 1rem;
+  background-color: white;
+}
+
+.form-picker-button-close {
+  background: none;
+  border: none;
+}
+
+button.fish-picker-button-modal_open {
+  display: none;
 }
 
 .fish-info-buttons {

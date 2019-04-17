@@ -47,12 +47,12 @@ export const Capacity = () => {
 
         <form onSubmit={onSubmit}>
           <Typography variant="h1" component="label" htmlFor="capacity-field">
-            Quelle est la capacité de votre aquarium ?
+            Quelle est la capacité de votre aquarium&nbsp;?
           </Typography>
 
           <Typography>
             Pour le bien être de vos poissons, il est recommandé d'avoir une
-            capacité minimum de 120 L
+            capacité minimum de 120&nbsp;L
           </Typography>
 
           <InputTextUnit

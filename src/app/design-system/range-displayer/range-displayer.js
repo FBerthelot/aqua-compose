@@ -14,9 +14,10 @@ export const RangeDisplayer = ({ known, range, type, unit }) => {
       <Typography component="span">
         {known
           ? range[0] === range[1]
-            ? `${range[0]} ${unit}`
-            : `${range[0]} à ${range[1]} ${unit}`
+            ? `${range[0]}`
+            : `${range[0]} à ${range[1]}`
           : "non connu"}
+        &nbsp;{known ? unit : ""}
       </Typography>
     </>
   );

@@ -1,25 +1,14 @@
 import "./fish-picker.css";
 import React, { useState } from "react";
 
-import Dialog from "@material-ui/core/Dialog";
-import Typography from "@material-ui/core/Typography";
+import { Typography } from "../../../design-system/typography/typography";
 
-import AppBar from "@material-ui/core/AppBar";
-import DialogContent from "@material-ui/core/DialogContent";
-import IconButton from "@material-ui/core/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
-import CloseIcon from "@material-ui/icons/Close";
-import Button from "@material-ui/core/Button";
-import Slide from "@material-ui/core/Slide";
+import { Button } from "../../../design-system/button/button";
 
 import { FishCard } from "../fish-card/fish-card";
 
 import { useRedux } from "../../../useRedux";
 import { getMinMaxOfkey } from "../../aquarium.logic";
-
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
 
 export const FishPicker = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -71,45 +60,41 @@ export const FishPicker = () => {
   );
 
   return (
-    <>
+    <div className="form-picker">
       <Button
-        variant="contained"
-        color="primary"
         type="button"
-        className="fish-picker-button"
+        className={`fish-picker-button ${
+          isDialogOpen ? "fish-picker-button-modal_open" : ""
+        }`}
         onClick={() => setDialogOpen(true)}
       >
         J'ajoute un poisson
       </Button>
 
-      <Dialog
-        fullScreen
-        TransitionComponent={Transition}
-        open={isDialogOpen}
-        onClose={() => setDialogOpen(false)}
-        aria-labelledby="form-dialog-title"
+      <div
+        className={`form-picker-modal ${
+          isDialogOpen ? "form-picker-modal_open" : ""
+        }`}
+        aria-labelledby="form-dialog"
       >
-        <AppBar>
-          <Toolbar>
-            <IconButton
-              className="form-picker-button-close"
-              color="inherit"
+        <header className="form-picker-header">
+          <button
+            className="form-picker-button-close"
+            onClick={() => setDialogOpen(false)}
+            aria-label="Close"
+          >
+            <img
+              alt="toogle"
+              src="/icon/low.svg"
               onClick={() => setDialogOpen(false)}
-              aria-label="Close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography
-              className="form-picker-title"
-              variant="h3"
-              component="h2"
-            >
-              J'ajoute des poissons
-            </Typography>
-          </Toolbar>
-        </AppBar>
+            />
+          </button>
+          <Typography className="form-picker-title" variant="h1" component="h2">
+            J'ajoute des poissons
+          </Typography>
+        </header>
 
-        <DialogContent className="form-picker-content">
+        <section className="form-picker-content">
           {fishes.map((fish, i) => (
             <FishCard
               key={fish.name}
@@ -123,8 +108,8 @@ export const FishPicker = () => {
               }}
             />
           ))}
-        </DialogContent>
-      </Dialog>
-    </>
+        </section>
+      </div>
+    </div>
   );
 };

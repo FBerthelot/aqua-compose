@@ -55,7 +55,7 @@ describe("fish-card", () => {
   it("should call the action handler when clicking on his button", () => {
     const cmp = shallow(<FishCard {...defaultProps} />);
 
-    cmp.find("WithStyles(Button)").simulate("click");
+    cmp.find("Button").simulate("click");
 
     expect(defaultProps.action.handler).toHaveBeenCalledWith(254);
   });
@@ -64,7 +64,7 @@ describe("fish-card", () => {
     const cmp = shallow(<FishCard {...defaultProps} />);
 
     cmp
-      .find("WithStyles(IconButton)")
+      .find(".fish_card-number_changer button")
       .at(1)
       .simulate("click");
 
@@ -76,7 +76,7 @@ describe("fish-card", () => {
     const cmp = shallow(<FishCard {...defaultProps} />);
 
     cmp
-      .find("WithStyles(IconButton)")
+      .find(".fish_card-number_changer button")
       .at(0)
       .simulate("click");
 
@@ -87,7 +87,7 @@ describe("fish-card", () => {
     const cmp = shallow(<FishCard {...defaultProps} />);
 
     cmp
-      .find("WithStyles(IconButton)")
+      .find(".fish_card-number_changer button")
       .at(0)
       .simulate("click");
 

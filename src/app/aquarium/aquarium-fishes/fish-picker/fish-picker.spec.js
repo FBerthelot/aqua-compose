@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import { FishPicker } from "./fish-picker";
 import { setState, dispatch } from "../../../useRedux";
 
@@ -70,20 +70,22 @@ describe("fish-picker", () => {
   it("should not show modal in initial state", () => {
     setState(defaultStore);
     expect(
-      mount(<FishPicker />)
-        .find("Dialog")
-        .props().open
-    ).toBe(false);
+      shallow(<FishPicker />)
+        .find(".form-picker-modal")
+        .props().className
+    ).not.toContain("form-picker-modal_open");
   });
 
   it("should show modal when clicking the button", () => {
     setState(defaultStore);
 
-    const component = mount(<FishPicker />);
+    const component = shallow(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component.find(".fish-picker-button").simulate("click");
 
-    expect(component.find("Dialog").props().open).toBe(true);
+    expect(component.find(".form-picker-modal").props().className).toContain(
+      "form-picker-modal_open"
+    );
   });
 
   it("should show the number of fish available for a 80L aquarium", () => {
@@ -92,9 +94,12 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
-    expect(component.find("Modal").text()).toContain(2);
+    expect(component.find(".form-picker-modal").text()).toContain(2);
   });
 
   it("should show the number of fish available for the aquarium minus those who already are in", () => {
@@ -109,9 +114,12 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
-    expect(component.find("Modal").text()).toContain(2);
+    expect(component.find(".form-picker-modal").text()).toContain(2);
   });
 
   it("should show the number of fish available that match PH of other fishes", () => {
@@ -122,9 +130,12 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
-    expect(component.find("Modal").text()).toContain(2);
+    expect(component.find(".form-picker-modal").text()).toContain(2);
   });
 
   it("should show the number of fish available that match temperature of other fishes", () => {
@@ -135,9 +146,12 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
-    expect(component.find("Modal").text()).toContain(2);
+    expect(component.find(".form-picker-modal").text()).toContain(2);
   });
 
   it("should show the number of fish available that match GH of other fishes", () => {
@@ -148,9 +162,12 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
-    expect(component.find("Modal").text()).toContain(2);
+    expect(component.find(".form-picker-modal").text()).toContain(2);
   });
 
   it("should display some info about fishes", () => {
@@ -158,25 +175,27 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
 
     defaultStore.fishes.forEach(fish => {
-      expect(component.find("Modal").text()).toContain(fish.name);
+      expect(component.find(".form-picker-modal").text()).toContain(fish.name);
     });
   });
 
   it("should close the modal when clicking cancel button", () => {
     setState(defaultStore);
 
-    const component = mount(<FishPicker />);
+    const component = shallow(<FishPicker />);
 
-    component.find("Button").simulate("click");
-    component
-      .find("Modal IconButton")
-      .at(0)
-      .simulate("click");
+    component.find(".fish-picker-button").simulate("click");
+    component.find(".form-picker-button-close").simulate("click");
 
-    expect(component.find("Dialog").props().open).toBe(false);
+    expect(
+      component.find(".form-picker-modal").props().className
+    ).not.toContain("form-picker-modal_open");
   });
 
   it("should show dispatch ADD_FISH_IN_AQUARIUM when adding a fish", () => {
@@ -184,7 +203,10 @@ describe("fish-picker", () => {
 
     const component = mount(<FishPicker />);
 
-    component.find("Button").simulate("click");
+    component
+      .find(".fish-picker-button")
+      .at(1)
+      .simulate("click");
     component
       .find("FishCard")
       .at(0)
@@ -195,10 +217,5 @@ describe("fish-picker", () => {
       type: "ADD_FISH_IN_AQUARIUM",
       payload: { fish: defaultStore.fishes[0], nbOfFishes: 40 }
     });
-
-    component
-      .find("Dialog")
-      .props()
-      .onClose();
   });
 });

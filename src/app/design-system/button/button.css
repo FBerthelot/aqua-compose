@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.app-button:hover {
+.app-button:hover:not([disabled]) {
   color: white;
 }
 
@@ -37,11 +37,11 @@
   transform: rotate(10deg) translate(-20%, 45%);
 }
 
-.app-button.long:after {
+.app-button.long:not([disabled]):after {
   height: 6rem;
   transform: rotate(5deg) translate(-20%, 50%);
 }
 
-.app-button:hover:after {
+.app-button:not([disabled]):hover:after {
   transform: rotate(0deg) translate(-20%, -50%);
 }
