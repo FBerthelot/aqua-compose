@@ -4,10 +4,7 @@ import PropTypes from "prop-types";
 import { fishType } from "../../aquarium.types";
 
 import { Typography } from "../../../design-system/typography/typography";
-import IconButton from "@material-ui/core/IconButton";
 import { Button } from "../../../design-system/button/button";
-import AddIcon from "@material-ui/icons/AddCircleOutline";
-import RmIcon from "@material-ui/icons/RemoveCircleOutline";
 
 import { RangeDisplayer } from "../../../design-system/range-displayer/range-displayer";
 
