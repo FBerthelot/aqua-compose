@@ -47,7 +47,7 @@ describe("fish-card", () => {
     delete defaultProps.fish.surname;
     const cmp = shallow(<FishCard {...defaultProps} />);
 
-    expect(cmp.find('[variant="h6"]').html()).not.toContain(
+    expect(cmp.find('[variant="scientific-name"]').html()).not.toContain(
       defaultProps.fish.name
     );
   });

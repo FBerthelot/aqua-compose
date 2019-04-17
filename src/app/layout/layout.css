@@ -1,15 +1,9 @@
 .main {
-  height: calc(100vh - 56px);
+  min-height: 88vh;
 }
 
-@media (min-width: 0px) and (orientation: landscape) {
+@media (max-width: 750px) {
   .main {
-    height: calc(100vh - 48px);
-  }
-}
-
-@media (min-width: 600px) {
-  .main {
-    height: calc(100vh - 64px);
+    min-height: 100vh;
   }
 }

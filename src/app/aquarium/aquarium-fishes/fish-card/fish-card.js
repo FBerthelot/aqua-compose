@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { fishType } from "../../aquarium.types";
 
-import Typography from "@material-ui/core/Typography";
+import { Typography } from "../../../design-system/typography/typography";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -13,7 +13,7 @@ import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/AddCircleOutline";
 import RmIcon from "@material-ui/icons/RemoveCircleOutline";
 
-import { RangeDisplayer } from "../../../common/range-displayer";
+import { RangeDisplayer } from "../../../design-system/range-displayer/range-displayer";
 
 export const FishCard = ({ fish, action, onNbFishChange = () => {} }) => {
   const [currentNumber, setCurrentNumber] = useState(
@@ -31,7 +31,7 @@ export const FishCard = ({ fish, action, onNbFishChange = () => {} }) => {
         />
         <CardContent>
           <Typography
-            variant="h4"
+            variant="h2"
             title={fish.surname || fish.name}
             component="h2"
             className="fish_card-title"
@@ -39,7 +39,7 @@ export const FishCard = ({ fish, action, onNbFishChange = () => {} }) => {
             {fish.surname || fish.name}
           </Typography>
           <Typography
-            variant="h6"
+            variant="scientific-name"
             title={fish.surname ? fish.name : ""}
             component="h2"
             className="fish_card-subtitle"

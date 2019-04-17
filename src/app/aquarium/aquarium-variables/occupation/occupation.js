@@ -2,14 +2,14 @@ import "./occupation.css";
 import React from "react";
 import PropTypes from "prop-types";
 
-import Typography from "@material-ui/core/Typography";
-import LinearProgress from "@material-ui/core/LinearProgress";
+import { Typography } from "../../../design-system/typography/typography";
+import { ProgressBar } from "../../../design-system/progress-bar/progress-bar";
 
 export const Occupation = ({ nbFishes, occupationPercent }) => {
   return (
     <article className="occupation">
       <div className="occupation-first_line">
-        <Typography gutterBottom variant="h5" component="h3">
+        <Typography variant="h4" component="h3">
           Taux d'occupation
         </Typography>
         <div className="occupation-first_line-fish_number">
@@ -24,14 +24,7 @@ export const Occupation = ({ nbFishes, occupationPercent }) => {
           </Typography>
         </div>
       </div>
-      <div className="occupation-second_line">
-        <LinearProgress
-          className="occupation-bar"
-          variant="determinate"
-          value={occupationPercent}
-        />
-        <div>{Math.floor(occupationPercent)}&nbsp;%</div>
-      </div>
+      <ProgressBar className="occupation-bar" percent={occupationPercent} />
     </article>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStore } from "redux";
 import { StoreContext } from "redux-react-hook";
 
@@ -11,8 +11,13 @@ import { Capacity } from "./aquarium/capacity/capacity";
 const store = createStore(mainReducer);
 
 const App = () => {
+  useEffect(() => {
+    window.particlesJS.load("particles-js", "/particlesjs-config.json");
+  }, []);
+
   return (
     <StoreContext.Provider value={store}>
+      <div id="particles-js" />
       <Router>
         <Route path="/" exact component={Capacity} />
         <Route

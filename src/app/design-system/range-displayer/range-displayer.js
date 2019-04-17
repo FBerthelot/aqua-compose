@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
+import { Typography } from "../typography/typography";
 import "./range-displayer.css";
 
 export const RangeDisplayer = ({ known, range, type, unit }) => {

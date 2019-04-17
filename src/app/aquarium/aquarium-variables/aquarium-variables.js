@@ -1,9 +1,8 @@
 import "./aquarium-variables.css";
 import React from "react";
 
-import Typography from "@material-ui/core/Typography";
+import { Typography } from "../../design-system/typography/typography";
 import { Occupation } from "./occupation/occupation";
-import Paper from "@material-ui/core/Paper";
 import { OtherData } from "./other-data/other-data";
 
 import { getOccupationRatio, getMinMaxOfkey } from "../aquarium.logic";
@@ -29,8 +28,8 @@ export const AquariumVariables = () => {
   const minMaxGH = getMinMaxOfkey(aquarium.fishes, "GH");
 
   return (
-    <Paper component="section" className="aquarium-data" elevation={2}>
-      <Typography gutterBottom variant="h4" component="h2">
+    <section className="aquarium-data">
+      <Typography variant="h1" component="h2">
         Mon aquarium
       </Typography>
 
@@ -43,6 +42,6 @@ export const AquariumVariables = () => {
         minMaxPH={minMaxPH}
         minMaxGH={minMaxGH}
       />
-    </Paper>
+    </section>
   );
 };

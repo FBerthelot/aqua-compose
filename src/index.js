@@ -6,5 +6,3 @@ import "particles.js";
 import "./particule.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
-
-window.particlesJS.load("particles-js", "/particlesjs-config.json");

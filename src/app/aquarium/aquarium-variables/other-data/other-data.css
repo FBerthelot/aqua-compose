@@ -24,6 +24,28 @@
   margin-bottom: 0.7rem;
 }
 
+.aquarium-data-expend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.4rem 0 0 0;
+}
+
+.aquarium-data-expend-button_expended {
+  transform: rotateZ(180deg);
+}
+
+.other-data-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms linear;
+}
+
+.other-data-content_expended {
+  margin-top: 0.5rem;
+  max-height: 40vh;
+}
+
 @media (max-width: 750px) {
   .aquarium-data .aquarium-data-other_data {
     flex-direction: column;

@@ -19,7 +19,7 @@ describe("Occupation", () => {
     window.innerWidth = 700;
     const cmp = shallow(<OtherData {...defaultProps} />);
 
-    expect(cmp.find("WithStyles(ExpansionPanel)").exists()).toBe(true);
+    expect(cmp.find(".aquarium-data-expend-bar").exists()).toBe(true);
   });
 
   it("should not display an acordeon when device is not mobile", () => {

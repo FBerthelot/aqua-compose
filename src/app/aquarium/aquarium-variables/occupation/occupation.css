@@ -1,5 +1,4 @@
-.aquarium-data .occupation-first_line,
-.aquarium-data .occupation-second_line {
+.aquarium-data .occupation-first_line {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,15 +8,11 @@
   display: flex;
 }
 
-.aquarium-data .occupation-bar {
-  width: 95%;
+.occupation-bar {
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 750px) {
-  .aquarium-data .occupation-bar {
-    width: 80%;
-  }
-
   .aquarium-data .occupation-first_line,
   .aquarium-data .occupation-second_line {
     padding: 0 0.5rem;
