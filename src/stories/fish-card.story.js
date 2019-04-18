@@ -21,7 +21,7 @@ storiesOf("Fish card", module)
             name: "Chechile",
             surname: "Designer",
             category: "Antillaise",
-            adultSize: 150,
+            adultSize: 153,
             minimumPopulation: 1,
             nbInAquarium: null,
             minimumVolume: 500,
