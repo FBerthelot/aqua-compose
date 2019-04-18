@@ -26,7 +26,10 @@
     "deploy:production": "surge --project ./build --domain aqua-compose.berthelot.io",
     "deploy:v1": "surge --project ./build --domain v1.aqua-compose.berthelot.io",
     "deploy:v2": "surge --project ./build --domain v2.aqua-compose.berthelot.io",
-    "release": "gitmoji-changelog"
+    "release": "gitmoji-changelog",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "test:generate-output": "CI=true react-scripts test --json --outputFile=.jest-test-results.json || true"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,7 +41,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@storybook/addon-a11y": "^5.0.10",
+    "@storybook/addon-actions": "^5.0.9",
+    "@storybook/addon-jest": "^5.0.10",
+    "@storybook/addon-knobs": "^5.0.9",
+    "@storybook/addon-links": "^5.0.9",
+    "@storybook/addons": "^5.0.9",
+    "@storybook/react": "^5.0.9",
     "axios": "^0.18.0",
+    "babel-loader": "^8.0.5",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.2",
     "coveralls": "^3.0.3",
