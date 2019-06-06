@@ -29,6 +29,7 @@
     "release": "gitmoji-changelog",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "surge --project ./storybook-static --domain storybook.aqua-compose.berthelot.io",
     "test:generate-output": "CI=true react-scripts test --json --outputFile=.jest-test-results.json || true"
   },
   "eslintConfig": {
