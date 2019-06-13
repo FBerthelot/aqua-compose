@@ -7,7 +7,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: #afd6e5;
+  background-color: var(--color_primary-light);
   position: fixed;
   transform: translateY(100%);
   transition: transform 1s ease;
@@ -19,7 +19,7 @@
 }
 
 .form-picker-header {
-  background-color: #afd6e5;
+  background-color: var(--color_primary-light);
   display: flex;
   flex-direction: column;
   align-items: center;

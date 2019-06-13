@@ -1,7 +1,7 @@
 import "./aquarium-fishes.css";
 import React from "react";
 
-import { FishCard } from "./fish-card/fish-card";
+import { Card } from "../../design-system/card/card";
 import { FishPicker } from "./fish-picker/fish-picker";
 
 import { useRedux } from "../../useRedux";
@@ -33,7 +33,7 @@ export const AquariumFishes = () => {
       <>
         <section className="aquarium-fishes-list">
           {fishes.map(fish => (
-            <FishCard
+            <Card
               key={fish.name}
               fish={fish}
               onNbFishChange={nb => setNbOfFishes(fish, nb)}

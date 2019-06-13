@@ -1,5 +1,5 @@
 .app-button {
-  border: 1px solid #00232c;
+  border: 1px solid var(--color_primary-dark);
   border-radius: 24px;
   font-family: Dosis;
   font-size: 20px;
@@ -18,7 +18,7 @@
 }
 
 .app-button:hover:not([disabled]) {
-  color: white;
+  color: var(--color_neutral);
 }
 
 .app-button:after {
@@ -44,4 +44,19 @@
 
 .app-button:not([disabled]):hover:after {
   transform: rotate(0deg) translate(-20%, -50%);
+}
+
+.app-button.app-button_primary {
+  background-color: var(--color_neutral);
+}
+
+.app-button.app-button_secondary {
+  border-color: var(--color_neutral);
+  color: var(--color_neutral);
+  background-color: transparent;
+}
+
+.app-button[disabled] {
+  border-color: var(--color_disabled);
+  color: var(--color_disabled);
 }

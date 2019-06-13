@@ -208,7 +208,7 @@ describe("fish-picker", () => {
       .at(1)
       .simulate("click");
     component
-      .find("FishCard")
+      .find("Card")
       .at(0)
       .props()
       .action.handler(40);

@@ -1,25 +1,25 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { withTests } from "@storybook/addon-jest";
 import { object, withKnobs, text } from "@storybook/addon-knobs";
-import results from "../../.jest-test-results.json";
+import { withTests } from "@storybook/addon-jest";
+import results from "../../../../.jest-test-results.json";
 
-import { FishCard } from "../app/aquarium/aquarium-fishes/fish-card/fish-card";
+import { Card } from "./card";
 import { action } from "@storybook/addon-actions";
 
-storiesOf("Fish card", module)
+storiesOf("Card", module)
   .addDecorator(withTests({ results }))
   .addDecorator(withKnobs)
   .add(
     "default",
     () => (
-      <FishCard
+      <Card
         fish={object(
           "fish",
           {
             name: "Chechile",
-            surname: "Designer",
+            surname: "Designer dog",
             category: "Antillaise",
             adultSize: 153,
             minimumPopulation: 1,
@@ -32,7 +32,7 @@ storiesOf("Fish card", module)
             },
             lifeZone: ["Paris"],
             picture:
-              "https://pbs.twimg.com/profile_images/1081180282978484224/WFXPlDwl_400x400.jpg",
+              "https://www.woopets.fr/assets/races/000/159/screen/chihuahua.jpg",
             link: "gotolink"
           },
           "fish-props"
@@ -45,6 +45,6 @@ storiesOf("Fish card", module)
       />
     ),
     {
-      jest: ["fish-card.spec.js"]
+      jest: ["card.spec.js"]
     }
   );

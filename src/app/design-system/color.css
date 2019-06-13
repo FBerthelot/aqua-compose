@@ -1,0 +1,10 @@
+:root {
+  --color_primary-dark: #00232c;
+  --color_primary-light: #afd6e5;
+
+  --color_disabled: #d7d7d7;
+  --color_error: #f0573f;
+  --color_secondary-1: #f07d3f;
+
+  --color_neutral: #ffffff;
+}

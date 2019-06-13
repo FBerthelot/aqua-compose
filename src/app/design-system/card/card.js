@@ -1,14 +1,13 @@
-import "./fish-card.css";
+import "./card.css";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { fishType } from "../../aquarium.types";
+import { fishType } from "../../aquarium/aquarium.types";
 
-import { Typography } from "../../../design-system/typography/typography";
-import { Button } from "../../../design-system/button/button";
+import { Typography } from "../typography/typography";
+import { Button } from "..//button/button";
+import { RangeDisplayer } from "../range-displayer/range-displayer";
 
-import { RangeDisplayer } from "../../../design-system/range-displayer/range-displayer";
-
-export const FishCard = ({ fish, action, onNbFishChange = () => {} }) => {
+export const Card = ({ fish, action, onNbFishChange = () => {} }) => {
   const [currentNumber, setCurrentNumber] = useState(
     fish.nbInAquarium || fish.minimumPopulation
   );
@@ -103,7 +102,7 @@ export const FishCard = ({ fish, action, onNbFishChange = () => {} }) => {
   );
 };
 
-FishCard.propTypes = {
+Card.propTypes = {
   fish: PropTypes.shape(fishType).isRequired,
   onNbFishChange: PropTypes.func,
   action: PropTypes.shape({

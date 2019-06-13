@@ -5,7 +5,7 @@ import { Typography } from "../../../design-system/typography/typography";
 
 import { Button } from "../../../design-system/button/button";
 
-import { FishCard } from "../fish-card/fish-card";
+import { Card } from "../../../design-system/card/card";
 
 import { useRedux } from "../../../useRedux";
 import { getMinMaxOfkey } from "../../aquarium.logic";
@@ -96,7 +96,7 @@ export const FishPicker = () => {
 
         <section className="form-picker-content">
           {fishes.map((fish, i) => (
-            <FishCard
+            <Card
               key={fish.name}
               fish={fish}
               action={{

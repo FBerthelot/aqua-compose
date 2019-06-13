@@ -130,7 +130,7 @@ table {
 
 html {
   font-size: 16px;
-  color: #00232c;
+  color: var(--color_primary-dark);
 }
 
 #root {

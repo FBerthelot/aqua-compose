@@ -1,16 +1,24 @@
 .progress-bar {
-  background: no-repeat linear-gradient(to left, #004957, #00232c), #ffffff;
+  background: no-repeat
+      linear-gradient(to left, #004957, var(--color_primary-dark)),
+    var(--color_neutral);
   border-radius: 4px;
-  border: 1px solid #00232c;
+  border: 1px solid var(--color_primary-dark);
   text-align: right;
   padding: 2px;
   padding-right: 8px;
-  color: #00232c;
+  color: var(--color_primary-dark);
 
   font-family: "Dosis", sans-serif;
   font-weight: 900;
 }
 
 .progress-bar_full {
-  background: no-repeat linear-gradient(to left, #f07d3f, #f07d3f), #ffffff;
+  background: no-repeat
+      linear-gradient(
+        to left,
+        var(--color_secondary-1),
+        var(--color_secondary-1)
+      ),
+    var(--color_neutral);
 }

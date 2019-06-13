@@ -25,3 +25,5 @@ yarn-error.log*
 .coveralls.yml
 
 storybook-static
+
+.jest-test-results.json

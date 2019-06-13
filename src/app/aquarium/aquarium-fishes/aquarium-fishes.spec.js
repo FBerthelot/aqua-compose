@@ -111,7 +111,7 @@ describe("Aquarium Fishes", () => {
     const cmp = mount(<AquariumFishes />);
 
     cmp
-      .find("FishCard")
+      .find("Card")
       .at(0)
       .props()
       .action.handler("click");
@@ -126,7 +126,7 @@ describe("Aquarium Fishes", () => {
     const cmp = mount(<AquariumFishes />);
 
     cmp
-      .find("FishCard")
+      .find("Card")
       .at(0)
       .props()
       .onNbFishChange(40);

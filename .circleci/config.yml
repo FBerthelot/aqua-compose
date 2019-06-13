@@ -58,6 +58,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - run: npm run test:generate-output
+      - run: npm run build-storybook
       - run: npm run deploy-storybook
 
 workflows:

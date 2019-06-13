@@ -3,8 +3,8 @@
   padding: 2rem 10vw;
   margin-top: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 20px 0 #00232c;
-  background-color: #afd6e5;
+  box-shadow: 0 0 20px 0 var(--color_primary-dark);
+  background-color: var(--color_primary-light);
 }
 
 .aquarium-data h2 {

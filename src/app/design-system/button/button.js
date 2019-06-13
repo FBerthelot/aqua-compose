@@ -2,18 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./button.css";
 
-export const Button = ({ className, children, ...rest }) => {
+export const Button = ({ className, children, variant, ...rest }) => {
   return (
-    <button className={`app-button ${className}`} {...rest}>
+    <button
+      className={`app-button app-button_${variant} ${className}`}
+      {...rest}
+    >
       {children}
     </button>
   );
 };
 
 Button.defaultProps = {
-  className: ""
+  className: "",
+  variant: "primary"
 };
 
 Button.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(["secondary", "primary"])
 };

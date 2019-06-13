@@ -1,0 +1,5 @@
+:root {
+  --breakpoint_tiny: 768px;
+  --breakpoint_small: 992px;
+  --breakpoint_medium: 1200px;
+}

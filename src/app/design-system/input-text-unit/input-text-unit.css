@@ -27,5 +27,5 @@
   font-size: 24px;
   font-weight: 500;
 
-  color: #00232c;
+  color: var(--color_primary-dark);
 }

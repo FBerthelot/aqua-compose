@@ -1,21 +1,40 @@
-.typography.typography_default {
+.typography,
+.typography.typography_text {
   font-family: "Dosis", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 17px;
 }
 
-.typography.typography_scientific-name {
-  font-family: Georgia-italic, Times;
+.typography.typography_text-center {
+  text-align: center;
+}
+
+.typography.typography_button,
+.typography.typography_button-disabled {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.typography.typography_button-disabled {
+  color: var(--color_disabled);
+}
+
+.typography.typography_error {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--color_error);
 }
 
 .typography.typography_h4,
 .typography.typography_h3 {
   font-family: "Dosis", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
+}
+
+.typography.typography_h3 {
+  font-weight: 800;
 }
 
 .typography.typography_h2 {
@@ -29,4 +48,15 @@
   font-family: "Dosis", sans-serif;
   font-weight: 800;
   font-size: 28px;
+}
+
+.typography.typography_label {
+  font-size: 16px;
+  line-height: 17px;
+}
+
+.typography.typography_scientific-name {
+  font-family: Georgia-italic, Times;
+  font-size: 18px;
+  font-weight: 400;
 }
