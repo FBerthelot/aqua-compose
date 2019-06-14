@@ -1,9 +1,15 @@
-.rang-displayer-illustration {
+.range-displayer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.range-displayer-illustration {
   margin-right: 0.75rem;
 }
 
-@media (max-width: 750px) {
-  .rang-displayer-illustration {
+@media (max-width: var(--breakpoint_tiny)) {
+  .range-displayer-illustration {
     margin-right: 0.5rem;
   }
 }

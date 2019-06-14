@@ -5,13 +5,13 @@ import "./range-displayer.css";
 
 export const RangeDisplayer = ({ known, range, type, unit }) => {
   return (
-    <>
+    <figure className="range-displayer-container range-displayer-illustration">
       <img
         alt={type}
         src={`/icon/${type}.svg`}
-        className="rang-displayer-illustration"
+        className="range-displayer-illustration"
       />
-      <Typography component="span">
+      <Typography component="figcaption">
         {known
           ? range[0] === range[1]
             ? `${range[0]}`
@@ -19,7 +19,7 @@ export const RangeDisplayer = ({ known, range, type, unit }) => {
           : "non connu"}
         &nbsp;{known ? unit : ""}
       </Typography>
-    </>
+    </figure>
   );
 };
 

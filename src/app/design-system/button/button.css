@@ -1,9 +1,6 @@
 .app-button {
   border: 1px solid var(--color_primary-dark);
   border-radius: 24px;
-  font-family: Dosis;
-  font-size: 20px;
-  font-weight: 800;
   padding: 0 24px;
   margin: 0;
   height: 48px;

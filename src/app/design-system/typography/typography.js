@@ -21,12 +21,24 @@ export const Typography = ({
 
 Typography.defaultProps = {
   component: "p",
-  variant: "default",
+  variant: "text",
   className: ""
 };
 
 Typography.propTypes = {
   component: PropTypes.string,
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf([
+    "button",
+    "button-disabled",
+    "error",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "label",
+    "scientific-name",
+    "text",
+    "text-center"
+  ]),
   className: PropTypes.string
 };

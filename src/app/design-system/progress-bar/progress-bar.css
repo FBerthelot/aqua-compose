@@ -5,8 +5,7 @@
   border-radius: 4px;
   border: 1px solid var(--color_primary-dark);
   text-align: right;
-  padding: 2px;
-  padding-right: 8px;
+  padding: 2px 8px 0 0;
   color: var(--color_primary-dark);
 
   font-family: "Dosis", sans-serif;

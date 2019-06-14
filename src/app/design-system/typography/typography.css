@@ -21,7 +21,7 @@
 }
 
 .typography.typography_error {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--color_error);
 }
@@ -56,7 +56,7 @@
 }
 
 .typography.typography_scientific-name {
-  font-family: Georgia-italic, Times;
+  font-family: "Libre Baskerville", serif;
   font-size: 18px;
   font-weight: 400;
 }

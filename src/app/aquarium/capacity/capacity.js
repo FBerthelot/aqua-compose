@@ -60,7 +60,7 @@ export const Capacity = () => {
             className="capacity-field-class"
             value={aquariumVolume}
             unit="L"
-            placeholder="120"
+            placeholder="Exemple : 120"
             required
             min="0"
             type="number"
