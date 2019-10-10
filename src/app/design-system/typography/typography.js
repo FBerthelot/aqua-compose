@@ -38,7 +38,9 @@ Typography.propTypes = {
     "label",
     "scientific-name",
     "text",
-    "text-center"
+    "text-center",
+    "primary-dark",
+    "white"
   ]),
   className: PropTypes.string
 };

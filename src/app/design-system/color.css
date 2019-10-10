@@ -1,10 +1,15 @@
 :root {
   --color_primary-dark: #00232c;
+  --color_primary-gradient: linear-gradient(
+    270deg,
+    #004957 0%,
+    var(--color_primary-dark) 100%
+  );
   --color_primary-light: #afd6e5;
 
-  --color_disabled: #d7d7d7;
-  --color_error: #f0573f;
-  --color_secondary-1: #f07d3f;
+  --color_warm: #f0573f;
+  --color_secondary: #f07d3f;
 
   --color_neutral: #ffffff;
+  --color_disabled: #d7d7d7;
 }

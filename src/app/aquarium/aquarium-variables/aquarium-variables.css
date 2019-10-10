@@ -12,7 +12,7 @@
   margin-bottom: 2rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: var(--breakpoint_tiny)) {
   .aquarium-data {
     width: 100vw;
     padding: 0;

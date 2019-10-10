@@ -1,6 +1,7 @@
 import "./fish-picker.css";
 import React, { useState } from "react";
 
+import { SearchInput } from "../../../design-system/search/search";
 import { Typography } from "../../../design-system/typography/typography";
 
 import { Button } from "../../../design-system/button/button";
@@ -12,6 +13,8 @@ import { getMinMaxOfkey } from "../../aquarium.logic";
 
 export const FishPicker = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const searchLowerCase = search.toLowerCase();
 
   const { fishes, addFishInAquarium } = useRedux(
     state => {
@@ -24,6 +27,15 @@ export const FishPicker = () => {
 
       return {
         fishes: state.fishes
+          .filter(f => {
+            if (!search) {
+              return true;
+            }
+            return (
+              f.name.toLowerCase().includes(searchLowerCase) ||
+              (f.surname && f.surname.toLowerCase().includes(searchLowerCase))
+            );
+          })
           .filter(f => f.minimumVolume <= state.aquarium.volume)
           .filter(
             f => !state.aquarium.fishes.find(fish => fish.name === f.name)
@@ -56,7 +68,7 @@ export const FishPicker = () => {
         });
       }
     }),
-    []
+    [search]
   );
 
   return (
@@ -89,9 +101,10 @@ export const FishPicker = () => {
               onClick={() => setDialogOpen(false)}
             />
           </button>
-          <Typography className="form-picker-title" variant="h1" component="h2">
-            J'ajoute des poissons
-          </Typography>
+          <SearchInput
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
         </header>
 
         <section className="form-picker-content">
@@ -108,6 +121,14 @@ export const FishPicker = () => {
               }}
             />
           ))}
+          {fishes.length === 0 && (
+            <Typography variant="primary-dark" className="no-fish-message">
+              Aucun de nos poissons correspond à vos critères.
+              <br />
+              <br />
+              Vous cherchez peut-être une licorne des mers ?
+            </Typography>
+          )}
         </section>
       </div>
     </div>

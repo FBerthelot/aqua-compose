@@ -20,7 +20,9 @@ const variants = [
   "label",
   "scientific-name",
   "text",
-  "text-center"
+  "text-center",
+  "primary-dark",
+  "white"
 ];
 
 storiesOf("Typography", module)

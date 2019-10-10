@@ -1,23 +1,13 @@
 .progress-bar {
-  background: no-repeat
-      linear-gradient(to left, #004957, var(--color_primary-dark)),
-    var(--color_neutral);
-  border-radius: 4px;
+  background: no-repeat var(--color_primary-gradient), var(--color_neutral);
+  border-radius: 0.24rem;
   border: 1px solid var(--color_primary-dark);
   text-align: right;
-  padding: 2px 8px 0 0;
-  color: var(--color_primary-dark);
-
-  font-family: "Dosis", sans-serif;
-  font-weight: 900;
+  padding: 0.12rem 0.5rem 0 0;
 }
 
 .progress-bar_full {
   background: no-repeat
-      linear-gradient(
-        to left,
-        var(--color_secondary-1),
-        var(--color_secondary-1)
-      ),
+      linear-gradient(to left, var(--color_secondary), var(--color_secondary)),
     var(--color_neutral);
 }

@@ -45,7 +45,7 @@ describe("capacity", () => {
   it("should redirect to my-aquarium page when form is valid", () => {
     const cmp = shallow(<Capacity />);
 
-    cmp.find("InputTextUnit").simulate("change", { target: { value: "50" } });
+    cmp.find("Input").simulate("change", { target: { value: "50" } });
     cmp.find("form").simulate("submit", { preventDefault: jest.fn() });
 
     expect(router().history.push).toHaveBeenCalled();
@@ -54,7 +54,7 @@ describe("capacity", () => {
   it("should disable button when form is invalid", () => {
     const cmp = shallow(<Capacity />);
 
-    cmp.find("InputTextUnit").simulate("change", { target: { value: "" } });
+    cmp.find("Input").simulate("change", { target: { value: "" } });
 
     expect(cmp.find("Button").props().disabled).toBe(true);
   });
@@ -62,7 +62,7 @@ describe("capacity", () => {
   it("should not disabled button when form is valid", () => {
     const cmp = shallow(<Capacity />);
 
-    cmp.find("InputTextUnit").simulate("change", { target: { value: "50" } });
+    cmp.find("Input").simulate("change", { target: { value: "50" } });
 
     expect(cmp.find("Button").props().disabled).toBeFalsy();
   });

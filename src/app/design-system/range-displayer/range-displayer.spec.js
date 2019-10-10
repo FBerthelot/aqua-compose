@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 
 describe("RangeDisplayer", () => {
   it("should display message when unknonw", () => {
-    const cmp = shallow(<RangeDisplayer known={false} />);
+    const cmp = shallow(<RangeDisplayer known={false} type="plus" />);
 
     expect(cmp.debug()).toContain("non connu");
   });

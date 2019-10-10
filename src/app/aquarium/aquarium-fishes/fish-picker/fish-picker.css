@@ -5,6 +5,7 @@
 
 .form-picker-modal {
   height: 100vh;
+  width: 100%;
   top: 0;
   left: 0;
   background-color: var(--color_primary-light);
@@ -25,12 +26,6 @@
   align-items: center;
   padding-top: 5vh;
   height: 15vh;
-}
-
-.form-picker-title {
-  margin-top: 1.5rem;
-  text-align: center;
-  width: 100%;
 }
 
 .form-picker-content {
@@ -66,9 +61,15 @@ svg.fish-info-button {
   color: rgba(255, 255, 255, 0.54);
 }
 
-@media (max-width: 750px) {
-  h2.form-picker-title {
-    font-size: 1.5rem;
+.no-fish-message {
+  text-align: center;
+  width: 90%;
+  margin-top: var(--spacing_xl);
+}
+
+@media (max-width: var(--breakpoint_tiny)) {
+  .no-fish-message {
+    text-align: left;
   }
 
   div.form-picker-content {

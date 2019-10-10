@@ -1,0 +1,82 @@
+.input-label-container {
+  width: 15rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  height: 4rem;
+}
+
+.input-label {
+  margin-bottom: 0.24rem;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input {
+  border-radius: 0.24rem;
+  border: 1px solid var(--color_neutral);
+  background-color: rgba(255, 255, 255, 0.9);
+
+  text-align: right;
+  width: 100%;
+  padding: 0;
+  height: 3rem;
+  line-height: 3rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.input-label_with-unit .input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  padding-right: 0.2rem;
+}
+
+.input[type="number"] {
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input::placeholder {
+  color: var(--color_disabled);
+}
+
+.input-unit {
+  height: 3rem;
+  line-height: 3rem;
+  background-color: var(--color_neutral);
+  border-radius: 0 0.24rem 0.24rem 0;
+  border: 1px solid var(--color_neutral);
+  border-left: none;
+  padding-right: 0.5rem;
+}
+
+/* ERROR */
+.input-label-container_error .input {
+  color: var(--color_warm);
+  border: 1px solid var(--color_warm);
+}
+
+.input-label_with-unit.input-label-container_error .input {
+  border-right: none;
+}
+
+.input-label-container_error .input-label {
+  color: var(--color_warm);
+}
+
+.input-label-container_error .input-unit {
+  color: var(--color_warm);
+  border-color: var(--color_warm);
+}
+
+.input-error-message {
+  margin-top: 0.24rem;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Typography} from '../typography/typography';
+import { Typography } from "../typography/typography";
 import "./button.css";
 
 export const Button = ({ className, children, variant, disabled, ...rest }) => {
@@ -10,7 +10,12 @@ export const Button = ({ className, children, variant, disabled, ...rest }) => {
       {...rest}
       disabled={disabled}
     >
-      <Typography component="span" variant={disabled ? 'button-disabled' : 'button'}>{children}</Typography>
+      <Typography
+        component="span"
+        variant={disabled ? "button-disabled" : "button"}
+      >
+        {children}
+      </Typography>
     </button>
   );
 };

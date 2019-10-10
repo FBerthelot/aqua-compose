@@ -46,7 +46,7 @@
   max-height: 40vh;
 }
 
-@media (max-width: 750px) {
+@media (max-width: var(--breakpoint_tiny)) {
   .aquarium-data .aquarium-data-other_data {
     flex-direction: column;
     padding: 0;

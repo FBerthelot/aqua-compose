@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withTests } from "@storybook/addon-jest";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import { withKnobs, select, boolean, text } from "@storybook/addon-knobs";
 
 import results from "../../../../.jest-test-results.json";
 
@@ -15,12 +15,53 @@ storiesOf("Button", module)
   .addDecorator(withTests({ results }))
   .addDecorator(withKnobs)
   .add(
-    "default",
+    "primary",
     () => (
       <div
         style={{
           backgroundColor: "var(--color_primary-light)",
-          padding: "5rem"
+          padding: "0rem"
+        }}
+      >
+        <Button onClick={action("onClick")}>primary button</Button>
+        <br />
+        <Button onClick={action("onClick")} disabled>
+          dispabled button
+        </Button>
+      </div>
+    ),
+    {
+      jest: ["button.spec.js"]
+    }
+  )
+  .add(
+    "secondary",
+    () => (
+      <div
+        style={{
+          backgroundColor: "var(--color_primary-light)",
+          padding: "0rem"
+        }}
+      >
+        <Button onClick={action("onClick")} variant="secondary">
+          secondary button
+        </Button>
+        <br />
+        <Button onClick={action("onClick")} variant="secondary" disabled>
+          secondary button d
+        </Button>
+      </div>
+    ),
+    {
+      jest: ["button.spec.js"]
+    }
+  )
+  .add(
+    "withKnobs",
+    () => (
+      <div
+        style={{
+          padding: "0rem"
         }}
       >
         <Button
@@ -28,26 +69,7 @@ storiesOf("Button", module)
           variant={select("variant", ["primary", "secondary"], "primary")}
           disabled={boolean("disabled")}
         >
-          With knobs
-        </Button>
-        <br />
-        <br />
-
-        <Button onClick={action("onClick")}>primary button</Button>
-        <br />
-        <br />
-        <Button onClick={action("onClick")} disabled>
-          primary button d
-        </Button>
-        <br />
-        <br />
-        <Button onClick={action("onClick")} variant="secondary">
-          secondary button
-        </Button>
-        <br />
-        <br />
-        <Button onClick={action("onClick")} variant="secondary" disabled>
-          secondary button d
+          {text("content", "With knobs")}
         </Button>
       </div>
     ),

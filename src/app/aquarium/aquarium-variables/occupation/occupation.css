@@ -12,7 +12,7 @@
   margin-top: 0.5rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: var(--breakpoint_tiny)) {
   .aquarium-data .occupation-first_line,
   .aquarium-data .occupation-second_line {
     padding: 0 0.5rem;

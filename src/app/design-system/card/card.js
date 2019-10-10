@@ -7,13 +7,13 @@ import { Typography } from "../typography/typography";
 import { Button } from "..//button/button";
 import { RangeDisplayer } from "../range-displayer/range-displayer";
 
-export const Card = ({ fish, action, onNbFishChange = () => {} }) => {
+export const Card = ({ fish, action, onNbFishChange, ...otherProps }) => {
   const [currentNumber, setCurrentNumber] = useState(
     fish.nbInAquarium || fish.minimumPopulation
   );
 
   return (
-    <article className="fish_card">
+    <article className="fish_card" {...otherProps}>
       <img
         alt={fish.surname}
         src={fish.picture}
@@ -100,6 +100,10 @@ export const Card = ({ fish, action, onNbFishChange = () => {} }) => {
       </div>
     </article>
   );
+};
+
+Card.defaultProps = {
+  onNbFishChange: () => {}
 };
 
 Card.propTypes = {

@@ -15,6 +15,7 @@ storiesOf("Card", module)
     "default",
     () => (
       <Card
+        style={{ marginLeft: "3rem" }}
         fish={object(
           "fish",
           {
@@ -32,7 +33,7 @@ storiesOf("Card", module)
             },
             lifeZone: ["Paris"],
             picture:
-              "https://www.woopets.fr/assets/races/000/159/screen/chihuahua.jpg",
+              "https://lh3.googleusercontent.com/-r95Z6bh7yqE/XQOUS7S2uaI/AAAAAAAAKiw/DnvV1tWX824ADWi0wNuCXEtfsjA6sX55wCK8BGAs/s0/2019-06-14.jpg",
             link: "gotolink"
           },
           "fish-props"

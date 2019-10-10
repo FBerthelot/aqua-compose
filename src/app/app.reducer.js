@@ -1,7 +1,7 @@
 const defaultState = {
   aquarium: {
     fishes: [],
-    volume: 80
+    volume: 120
   },
   fishes: []
 };

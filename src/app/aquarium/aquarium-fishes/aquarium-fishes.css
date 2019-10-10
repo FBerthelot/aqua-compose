@@ -20,7 +20,7 @@
   height: 30vh;
 }
 
-@media (max-width: 750px) {
+@media (max-width: var(--breakpoint_tiny)) {
   .aquarium-fishes-list {
     width: 100vw;
   }

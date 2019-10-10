@@ -1,9 +1,9 @@
 .app-button {
   border: 1px solid var(--color_primary-dark);
-  border-radius: 24px;
-  padding: 0 24px;
-  margin: 0;
-  height: 48px;
+  border-radius: 1.5rem;
+  padding: 0 1.5rem;
+  margin: 1.5rem;
+  height: 3rem;
   background: transparent;
   cursor: pointer;
 

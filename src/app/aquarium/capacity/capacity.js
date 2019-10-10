@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRedux } from "../../useRedux";
-import { InputTextUnit } from "../../design-system/input-text-unit/input-text-unit";
+import { Input } from "../../design-system/input/input";
 import { Typography } from "../../design-system/typography/typography";
 import { Header } from "../../layout/header/header";
 import { Button } from "../../design-system/button/button";
@@ -10,6 +10,8 @@ import "./capacity.css";
 export const Capacity = () => {
   const { history } = useReactRouter();
   const [aquariumVolume, setCurrentAquariumValue] = useState("");
+  const [isDirty, setIsDirty] = useState(false);
+  const [error, setError] = useState(null);
 
   const { onSubmit } = useRedux(
     () => {},
@@ -30,9 +32,12 @@ export const Capacity = () => {
   );
 
   const handleVolumeChange = e => {
+    setCurrentAquariumValue(e.target.value);
     const number = Number(e.target.value);
     if (number > 0) {
-      setCurrentAquariumValue(Number(e.target.value));
+      setError(null);
+    } else {
+      setError("Veuillez entrer un nombre positif");
     }
   };
 
@@ -45,7 +50,7 @@ export const Capacity = () => {
           Mon Aquarium
         </Typography>
 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} noValidate>
           <Typography variant="h1" component="label" htmlFor="capacity-field">
             Quelle est la capacité de votre aquarium&nbsp;?
           </Typography>
@@ -55,9 +60,8 @@ export const Capacity = () => {
             capacité minimum de 120&nbsp;L
           </Typography>
 
-          <InputTextUnit
+          <Input
             id="capacity-field"
-            className="capacity-field-class"
             value={aquariumVolume}
             unit="L"
             placeholder="Exemple : 120"
@@ -65,6 +69,8 @@ export const Capacity = () => {
             min="0"
             type="number"
             onChange={handleVolumeChange}
+            onBlur={() => setIsDirty(true)}
+            error={isDirty && error ? error : ""}
           />
 
           <div>

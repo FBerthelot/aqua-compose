@@ -1,7 +1,7 @@
 .typography,
 .typography.typography_text {
   font-family: "Dosis", sans-serif;
-  font-size: 16px;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 17px;
 }
@@ -12,7 +12,7 @@
 
 .typography.typography_button,
 .typography.typography_button-disabled {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 800;
 }
 
@@ -21,16 +21,15 @@
 }
 
 .typography.typography_error {
-  font-size: 20px;
+  font-size: 1.125rem;
   font-weight: 500;
-  color: var(--color_error);
+  color: var(--color_warm);
 }
 
 .typography.typography_h4,
 .typography.typography_h3 {
-  font-family: "Dosis", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .typography.typography_h3 {
@@ -38,25 +37,35 @@
 }
 
 .typography.typography_h2 {
-  font-family: "Dosis", sans-serif;
   font-weight: 800;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 2.5rem;
+  line-height: 3.12rem;
 }
 
 .typography.typography_h1 {
-  font-family: "Dosis", sans-serif;
   font-weight: 800;
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 .typography.typography_label {
-  font-size: 16px;
-  line-height: 17px;
+  font-size: 1.125rem;
+  line-height: 1rem;
 }
 
 .typography.typography_scientific-name {
   font-family: "Libre Baskerville", serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
+}
+
+.typography.typography_primary-dark {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color_primary-dark);
+}
+
+.typography.typography_white {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color_neutral);
 }
