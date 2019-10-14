@@ -95,7 +95,9 @@ export const Card = ({ fish, action, onNbFishChange, ...otherProps }) => {
         </div>
 
         <Button type="button" onClick={() => action.handler(currentNumber)}>
-          {action.name}
+          {typeof action.name === "function"
+            ? action.name(currentNumber)
+            : action.name}
         </Button>
       </div>
     </article>

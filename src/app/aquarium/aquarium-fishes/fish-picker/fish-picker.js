@@ -31,9 +31,14 @@ export const FishPicker = () => {
             if (!search) {
               return true;
             }
-            return (
-              f.name.toLowerCase().includes(searchLowerCase) ||
-              (f.surname && f.surname.toLowerCase().includes(searchLowerCase))
+
+            const eachNameWord = [
+              ...f.name.toLowerCase().split(" "),
+              ...(f.surname && f.surname.toLowerCase().split(" "))
+            ];
+
+            return !!eachNameWord.find(word =>
+              word.startsWith(searchLowerCase)
             );
           })
           .filter(f => f.minimumVolume <= state.aquarium.volume)
@@ -113,7 +118,8 @@ export const FishPicker = () => {
               key={fish.name}
               fish={fish}
               action={{
-                name: "J'ajoute",
+                name: nbFish =>
+                  `J'ajoute ${nbFish} poisson${nbFish > 1 ? "s" : ""}`,
                 handler: nbOfFishes => {
                   setDialogOpen(false);
                   addFishInAquarium(fish, nbOfFishes);

@@ -79,4 +79,5 @@ input::-webkit-inner-spin-button {
 
 .input-error-message {
   margin-top: 0.24rem;
+  text-align: left;
 }
